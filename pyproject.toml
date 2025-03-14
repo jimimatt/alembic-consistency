@@ -1,0 +1,36 @@
+[project]
+name = "alembic-consistency"
+version = "0.1.0"
+description = "pre-commit hook to check for alembic consistency"
+readme = "README.md"
+authors = [
+    { name = "Matthias Telöken", email = "matthias.teloeken@posteo.de" }
+]
+requires-python = ">=3.12"
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+dependencies = []
+
+[project.scripts]
+consistency_check = "alembic_consistency.consistency_hook:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+    "ruff>=0.9.6",
+]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+sources = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = ["--import-mode=importlib"]

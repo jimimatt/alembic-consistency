@@ -1,0 +1,7 @@
+-   id: alembic-consistency-checker
+    name: Alembic consistency checker
+    description: Checks consistency of alembic migration scripts.
+    entry: consistency_check
+    require_serial: true
+    language: python
+    files: '^$'
